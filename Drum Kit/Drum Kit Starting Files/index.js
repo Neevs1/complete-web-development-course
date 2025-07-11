@@ -12,6 +12,7 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
 
 document.addEventListener("keydown", function(event) {
   makesound(event.key);   
+  buttonAnim(event.key);
 }  
 )
 
@@ -51,5 +52,13 @@ function makesound(key){
             default:
                 break;
         }
+}
+
+function buttonAnim(currentKey){
+    var activeButton = document.querySelector("."+currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    },100);
 }
 
